@@ -62,12 +62,24 @@ def query_ollama(prompt: str) -> str:
         return "Sorry, I couldn't generate a summary right now."
 
 def clean_summary_and_extract_places(text):
-    # Strip markdown formatting like ** and ##
-    cleaned_text = re.sub(r'[*#]+', '', text)
+    # Strip markdown formatting
+    text = re.sub(r'[*#]+', '', text).strip()
 
-    # Extract numbered places
-    places = re.findall(r'\d+\.\s+(.*)', cleaned_text)
-    summary = re.split(r'\d+\.\s+', cleaned_text)[0].strip()
+    # Split into lines and extract places starting with numbered pattern
+    lines = text.splitlines()
+    summary_lines = []
+    place_lines = []
+
+    for line in lines:
+        line = line.strip()
+        if re.match(r'^\d+\.\s+', line):
+            place_lines.append(line)
+        else:
+            summary_lines.append(line)
+
+    # Join summary until the first numbered item
+    summary = "\n".join(summary_lines).split("\n1.")[0].strip()
+    places = [re.sub(r'^\d+\.\s+', '', p).strip() for p in place_lines]
 
     return summary, places
 
