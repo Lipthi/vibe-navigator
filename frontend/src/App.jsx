@@ -27,7 +27,7 @@ function App() {
         params.append("preference", preference);
       }
 
-      const res = await fetch(`http://localhost:8000/summarize?${params.toString()}`);
+      const res = await fetch(`https://186de856f4c5.ngrok-free.app/summarize?${params.toString()}`);
       const data = await res.json();
       setResult(data);
     } catch (err) {
