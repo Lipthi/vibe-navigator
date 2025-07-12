@@ -29,7 +29,7 @@ Publicly accessible via Vercel (frontend) + Ngrok (backend)
 Node.js & npm (for frontend)
 Python 3.10+ (for backend)
 Ollama installed and running locally
-Ngrok for public backend URL
+Render and also Ngrok for public backend URL
 
 ### 1. Clone the repo
 `cd frontend`
@@ -45,3 +45,6 @@ Ngrok for public backend URL
 
 ## Connect Frontend to Backend
 `const res = await fetch(`https://your-ngrok-url.ngrok-free.app/summarize?...`);`
+
+## Final url
+https://vibe-navigator-lipthi-poovannas-projects.vercel.app/
