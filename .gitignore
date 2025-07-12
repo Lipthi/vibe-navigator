@@ -1,0 +1,16 @@
+# Node modules (frontend)
+node_modules/
+
+# Python files (backend)
+__pycache__/
+*.pyc
+
+# Env files (secrets)
+.env
+
+# VS Code settings (optional)
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
